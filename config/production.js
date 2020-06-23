@@ -5,4 +5,5 @@ module.exports = {
 	cookieKey: process.env.COOKIE_KEY,
 	twilioSid: process.env.TWILIO_SID,
 	twilioToken: process.env.TWILIO_TOKEN,
+	twilioPhone: process.env.TWILIO_PHONE,
 };

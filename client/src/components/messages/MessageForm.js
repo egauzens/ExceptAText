@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { reduxForm, Field, formValues } from "redux-form";
+import { reduxForm, Field } from "redux-form";
 import MessageInputField from "./MessageInputField";
 import MessageTextAreaField from "./MessageTextAreaField";
 import { Link } from "react-router-dom";

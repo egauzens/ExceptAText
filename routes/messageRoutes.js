@@ -11,14 +11,16 @@ module.exports = (app) => {
 	});
 
 	app.post("/api/messages", async (req, res) => {
-		console.log(req.body);
-
 		const { title, message, recipientPhone } = req.body;
+		//const timeZone = "America/New_York";
+		const time = "06-23-2020 14:09";
 
 		const messageModel = new Message({
 			title,
 			message,
 			recipientPhone,
+			//timeZone,
+			time,
 			_user: req.user.id,
 		});
 
