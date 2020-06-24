@@ -4,7 +4,7 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
 const cookieSession = require("cookie-session");
-const scheduler = require("./services/messagingService/scheduler");
+const TwilioMessagingService = require("./services/messagingService/TwilioMessagingService");
 require("./models/User");
 require("./models/Message");
 require("./services/authService/passport");
@@ -26,10 +26,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-scheduler.start();
-
 require("./routes/authRoutes")(app);
 require("./routes/messageRoutes")(app);
+
+const twilioMessagingService = new TwilioMessagingService();
+twilioMessagingService.start();
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static("client/build"));
